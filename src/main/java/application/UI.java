@@ -37,7 +37,7 @@ public class UI {
     }
 
     // Imprimir 1 peça
-    private static void printPiece(ChessPiece piece){
+    private static void printPiece(ChessPiece piece) {
         if (piece == null) {
             System.out.print("-");
         }

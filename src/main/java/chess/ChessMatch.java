@@ -17,24 +17,22 @@ public class ChessMatch {
     }
 
     // Retornando uma matriz de peças de xadrez com base na partida
-    public ChessPiece[][] getPieces(){
+    public ChessPiece[][] getPieces() {
         ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
-
-        for (int i = 0; i<board.getColumns(); i++){
-            for (int j = 0; j<board.getColumns(); j++){
+        for (int i=0; i<board.getRows(); i++) {
+            for (int j=0; j<board.getColumns(); j++) {
                 mat[i][j] = (ChessPiece) board.piece(i, j);
             }
         }
-
         return mat;
     }
 
-    private void placeNewPiece(char column, int row, ChessPiece piece){
+    private void placeNewPiece(char column, int row, ChessPiece piece) {
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
 
     // Inicia a partida
-    private void initialSetup(){
+    private void initialSetup() {
         placeNewPiece('c', 1, new Rook(board, Color.WHITE));
         placeNewPiece('c', 2, new Rook(board, Color.WHITE));
         placeNewPiece('d', 2, new Rook(board, Color.WHITE));
