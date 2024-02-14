@@ -38,6 +38,12 @@ public class ChessMatch {
         }
     }
 
+    private void valdateTargetPosition(Position source, Position target){
+        if (!board.piece(source).possibleMove(target)){
+            throw new ChessException("A peça escolhida não pode se mover para posição de destino");
+        }
+    }
+
     private Piece makeMove(Position source, Position target){
         Piece p = board.removePiece(source);
         Piece capturedPiece = board.removePiece(target);
@@ -50,6 +56,7 @@ public class ChessMatch {
         Position target = targetPosition.toPosition();
         // Valida se na posição existe uma peça
         validateSourcePosition(source);
+        valdateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source, target);
         return (ChessPiece) capturedPiece;
     }
